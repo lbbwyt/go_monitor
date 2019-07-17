@@ -3,6 +3,56 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "Q/Dqu649AmUZLn1w65yKl7d6Ugg=",
+			"path": "chief_operation/src/server/admin/api",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "uvxqbDE2Zd8HDHdi63j98SmwimY=",
+			"path": "chief_operation/src/server/admin/config",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "EDjQAU8NQlp1ngrV0LQcBvfQyic=",
+			"path": "chief_operation/src/server/admin/dao",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "f5l05gTefd5vIWP5iTPFSq34Wcc=",
+			"path": "chief_operation/src/server/admin/entity",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "5bCMNVY39nMDo4M8ZgwCNAaOnrQ=",
+			"path": "chief_operation/src/server/admin/handler",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "Lzy8eyblGQw1i3VeNstWekMDFs0=",
+			"path": "chief_operation/src/server/client/config",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "rlOnCvlyV/n01sHYQftINVjSFB8=",
+			"path": "chief_operation/src/server/client/oshandler",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "PcJEOdQaW6nVx+GOOcoxjo/U67E=",
+			"path": "chief_operation/src/util/common",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "XIIhQhw/T3piWacAhysYvj4AofM=",
+			"path": "chief_operation/src/util/db",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "r0inoGinJYoSmLgkQmHVX8+GC9E=",
+			"path": "chief_operation/src/util/form",
+			"revision": ""
+		},
+		{
 			"checksumSHA1": "7nZciuhjItANNKfQIMokklsw0gw=",
 			"path": "github.com/astaxie/beego",
 			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
@@ -31,6 +81,12 @@
 			"path": "github.com/astaxie/beego/grace",
 			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
 			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "sLBLqoCVzo6y8jjT2UbPEJ1YppU=",
+			"path": "github.com/astaxie/beego/httplib",
+			"revision": "e844058aeddf6065ac282a313e6f45a0a9f12731",
+			"revisionTime": "2019-06-18T04:09:34Z"
 		},
 		{
 			"checksumSHA1": "jf/YI3zTT5/Dqvr0V2gLyWzlLbw=",
@@ -63,6 +119,36 @@
 			"revisionTime": "2019-05-10T10:23:35Z"
 		},
 		{
+			"checksumSHA1": "FkV6X2KBq7CUPtUNH+rVza5Y5O4=",
+			"path": "github.com/hashicorp/hcl/hcl/scanner",
+			"revision": "cf7d376da96d9cecec7c7483cec2735efe54a410",
+			"revisionTime": "2019-06-11T12:32:18Z"
+		},
+		{
+			"checksumSHA1": "Vb22K5JK1GTX5xLJyrLrROoA7FQ=",
+			"path": "github.com/hashicorp/hcl/hcl/strconv",
+			"revision": "cf7d376da96d9cecec7c7483cec2735efe54a410",
+			"revisionTime": "2019-06-11T12:32:18Z"
+		},
+		{
+			"checksumSHA1": "+Y/a0ePZ1i7E0NpQvtm1rc6RQT0=",
+			"path": "github.com/hashicorp/hcl/json/parser",
+			"revision": "cf7d376da96d9cecec7c7483cec2735efe54a410",
+			"revisionTime": "2019-06-11T12:32:18Z"
+		},
+		{
+			"checksumSHA1": "kw2I3QA57jE9QR6FyqlCUk0bdkY=",
+			"path": "github.com/hashicorp/hcl/json/scanner",
+			"revision": "cf7d376da96d9cecec7c7483cec2735efe54a410",
+			"revisionTime": "2019-06-11T12:32:18Z"
+		},
+		{
+			"checksumSHA1": "knLekryOag5SGOV4jX8nwudBCDo=",
+			"path": "github.com/hashicorp/hcl/json/token",
+			"revision": "cf7d376da96d9cecec7c7483cec2735efe54a410",
+			"revisionTime": "2019-06-11T12:32:18Z"
+		},
+		{
 			"checksumSHA1": "RXSopFPGlhw7MD9uYxJ0oWN66JY=",
 			"path": "github.com/jinzhu/gorm",
 			"revision": "836fb2c19d84dac7b0272958dfb9af7cf0d0ade4",
@@ -81,8 +167,18 @@
 			"revisionTime": "2019-06-03T04:28:36Z"
 		},
 		{
+			"checksumSHA1": "nk6RrsdvNvT0jR4/U1WLHnoQNjM=",
+			"path": "github.com/spf13/viper",
+			"revision": "e02bc9eca55d5fc66221bc0aeeaaa77410603914",
+			"revisionTime": "2018-07-27T08:10:14Z"
+		},
+		{
 			"checksumSHA1": "HUG9QNBH3amR9hGfSrIsYqTCLkw=",
 			"path": "golang.org/x/crypto/acme/autocert",
+			"revision": ""
+		},
+		{
+			"path": "golang.org/x/text/transform",
 			"revision": ""
 		},
 		{
@@ -96,5 +192,5 @@
 			"revisionTime": "2018-11-15T11:05:04Z"
 		}
 	],
-	"rootPath": "chief_operation"
+	"rootPath": "go_monitor"
 }

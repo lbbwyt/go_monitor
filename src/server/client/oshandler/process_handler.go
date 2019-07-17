@@ -1,11 +1,11 @@
 package oshandler
 
 import (
-	"chief_operation/src/server/client/config"
-	"chief_operation/src/util/common"
 	"encoding/json"
 	"github.com/astaxie/beego/httplib"
-	 "github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/logs"
+	"go_monitor/src/server/client/config"
+	"go_monitor/src/util/common"
 	"os/exec"
 	"time"
 )
@@ -19,14 +19,14 @@ func InitService() {
 }
 
 /**
- 定时检测进程存活常规下每隔一分钟检测一次。
- */
+定时检测进程存活常规下每隔一分钟检测一次。
+*/
 func StartMonitorPort(port string) {
 	tickerMonitor := time.NewTicker(60 * time.Second)
 	go func(t time.Ticker) {
 		for {
 			<-t.C
-			logs.Info("循环检活,端口号为"+ port, time.Now().Format("2006-01-02 15:04:05"))
+			logs.Info("循环检活,端口号为"+port, time.Now().Format("2006-01-02 15:04:05"))
 			execPipleCmd(port)
 		}
 	}(*tickerMonitor)
@@ -46,13 +46,12 @@ func execPipleCmd(port string) {
 	logs.Info("linux 命令执行结果为" + outstr)
 }
 
-
 func PushDingMsg(errMsg string, port string) error {
-    url := config.Conf.Url
-    org := config.Conf.Org
+	url := config.Conf.Url
+	org := config.Conf.Org
 	content := new(common.Param)
 	content.Org = org
-	content.Msg = "端口号为（"+port+"）的服务进程已死亡,请及时处理，错误内容为：" + errMsg
+	content.Msg = "端口号为（" + port + "）的服务进程已死亡,请及时处理，错误内容为：" + errMsg
 	data, _ := json.Marshal(content)
 	req := httplib.Post(url)
 	req.Header("Content-Type", "application/json")

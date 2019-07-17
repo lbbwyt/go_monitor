@@ -1,12 +1,11 @@
 package dao
 
 import (
-	"chief_operation/src/server/admin/config"
-	"chief_operation/src/util/db"
-	"github.com/jinzhu/gorm"
 	log "github.com/astaxie/beego/logs"
+	"github.com/jinzhu/gorm"
+	"go_monitor/src/server/admin/config"
+	"go_monitor/src/util/db"
 )
-
 
 var (
 	MysqlCon *gorm.DB

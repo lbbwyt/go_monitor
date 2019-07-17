@@ -1,35 +1,63 @@
 package config
 
 import (
-	"chief_operation/src/util/form"
 	"encoding/json"
 	"fmt"
 	log "github.com/astaxie/beego/logs"
+	"github.com/fsnotify/fsnotify"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"src/github.com/spf13/viper"
 	"strings"
 )
 
-
-
 type Config struct {
-	*form.PortConf
+	Org   string   `json:"org"`
+	Url   string   `json:"url"`
+	Ports []string `json:"ports"`
 }
 
 var (
-	Conf =  new(Config)
+	Conf = new(Config)
 )
 
 func InitConfig(test string) {
 	log.Info("开始加载配置")
 	ReadConf(Conf, test)
-
 	//从配置文件中加载数据库配置,配置文件变更后，重启服务。
 	log.Info("加载配置完成")
 }
 
+func InitVipConfig() {
+	viper.SetConfigName("conf")                            // name of config file (without extension)
+	viper.AddConfigPath(GetCurrentDirectory() + "/config") // path to look for the config file in
+	if err := viper.ReadInConfig(); err != nil {
+		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
+			log.Error("配置文件不存在")
+		} else {
+			log.Error("读取配置文件失败")
+		}
+		return
+	}
+	var url = viper.GetString("url")
+	Conf.Url = url
+	Conf.Org = viper.GetString("org")
+	var prots []string
+	prots = viper.GetStringSlice("ports")
+	Conf.Ports = prots
+	log.Info("加载配置完成")
+	go WatchConfig()
 
+}
+
+func WatchConfig() {
+	viper.WatchConfig()
+	viper.OnConfigChange(func(e fsnotify.Event) {
+		log.Info("Config file changed:")
+		InitVipConfig()
+	})
+}
 
 func ReadConf(v interface{}, test string) {
 	fmt.Println("当前路径为：" + GetCurrentDirectory())

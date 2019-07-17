@@ -1,26 +1,25 @@
 package api
 
 import (
-	"chief_operation/src/server/admin/config"
-	"chief_operation/src/server/admin/dao"
-	"chief_operation/src/server/admin/handler"
 	"github.com/astaxie/beego/httplib"
 	"github.com/astaxie/beego/logs"
+	"go_monitor/src/server/admin/config"
+	"go_monitor/src/server/admin/dao"
+	"go_monitor/src/server/admin/handler"
 	"testing"
 	"time"
 )
 
 func TestInitApi(t *testing.T) {
 	config.InitConfig("F:/go/src/chief_operation/src/server/admin")
-	dao.InitMysql();
+	dao.InitMysql()
 	go InitApi("localhost:6800")
 	time.Sleep(time.Second * 2)
 
-
 	req := httplib.Post("http://localhost:6800/api/pushMsg")
 	req.Header("Content-Type", "application/json")
-	var param = new(handler.Param);
-	param.Code= "402"
+	var param = new(handler.Param)
+	param.Code = "402"
 	param.Error = "test err msg"
 
 	req.Body(param)

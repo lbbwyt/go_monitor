@@ -1,17 +1,15 @@
 package api
 
 import (
-	"chief_operation/src/server/admin/dao"
-	"chief_operation/src/server/admin/entity"
-	"chief_operation/src/server/admin/handler"
-	"chief_operation/src/util/common"
 	log "github.com/astaxie/beego/logs"
+	"go_monitor/src/server/admin/dao"
+	"go_monitor/src/server/admin/entity"
+	"go_monitor/src/server/admin/handler"
+	"go_monitor/src/util/common"
 	"time"
 )
 
-type ApiController struct {}
-
-
+type ApiController struct{}
 
 func NewApiController() *ApiController {
 	d := new(ApiController)
@@ -19,7 +17,7 @@ func NewApiController() *ApiController {
 }
 
 func (this *ApiController) PushMsg(param *handler.Param) error {
-	log.Info("推送消息：" + common.Obj2JsonStr(param) )
+	log.Info("推送消息：" + common.Obj2JsonStr(param))
 	//消息推送到钉钉
 	go handler.Add(param)
 
@@ -34,7 +32,7 @@ func (this *ApiController) PushMsg(param *handler.Param) error {
 	//写数据到数据库
 	err := dao.MysqlCon.Save(alarmMsg).Error
 	if err != nil {
-		log.Error("写入消息失败"+err.Error())
+		log.Error("写入消息失败" + err.Error())
 		return err
 	}
 	return nil

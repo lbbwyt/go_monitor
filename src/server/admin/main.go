@@ -1,16 +1,16 @@
 package main
 
 import (
-	"chief_operation/src/server/admin/api"
-	"chief_operation/src/server/admin/config"
-	"chief_operation/src/server/admin/dao"
-	"chief_operation/src/server/admin/handler"
 	log "github.com/astaxie/beego/logs"
+	"go_monitor/src/server/admin/api"
+	"go_monitor/src/server/admin/config"
+	"go_monitor/src/server/admin/dao"
+	"go_monitor/src/server/admin/handler"
 )
 
 func main() {
 	log.Info("Enter main")
-	Init();
+	Init()
 
 }
 
@@ -18,7 +18,7 @@ func main() {
 func Init() {
 	log.Info(">>>>开始初始化")
 	//debug.InitDebug("localhost:6060")
-    config.InitConfig("")
+	config.InitConfig("")
 	dao.InitMysql()
 	handler.InitService()
 	api.InitApi(":6800")

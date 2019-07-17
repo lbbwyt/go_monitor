@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"chief_operation/src/server/admin/config"
+	"go_monitor/src/server/admin/config"
 	"testing"
 )
 
@@ -15,13 +15,12 @@ func TestInitService(t *testing.T) {
 	<-chanInt
 }
 
-
 func SendMsg() {
 	for i := 0; i < 10; i++ {
 		var param = new(Param)
-		param.Msg="服务器异常"
-		param.Code= "502"
-		param.Error= "test"
+		param.Msg = "服务器异常"
+		param.Code = "502"
+		param.Error = "test"
 		Add(param)
 	}
 }

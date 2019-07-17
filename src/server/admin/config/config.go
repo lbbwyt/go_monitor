@@ -1,24 +1,22 @@
 package config
 
 import (
-	"chief_operation/src/util/form"
 	"encoding/json"
 	"fmt"
 	log "github.com/astaxie/beego/logs"
+	"go_monitor/src/util/form"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
-
-
 type Config struct {
 	*form.CommonConf
 }
 
 var (
-	Conf =  new(Config)
+	Conf = new(Config)
 )
 
 func InitConfig(test string) {
@@ -28,8 +26,6 @@ func InitConfig(test string) {
 	//从配置文件中加载数据库配置,配置文件变更后，重启服务。
 	log.Info("加载配置完成")
 }
-
-
 
 func ReadConf(v interface{}, test string) {
 	fmt.Println("当前路径为：" + GetCurrentDirectory())
