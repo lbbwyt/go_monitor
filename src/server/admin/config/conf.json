@@ -1,0 +1,13 @@
+{
+  "dingding": {
+    "path":"https://oapi.dingtalk.com/robot/send?access_token=e13fcb893103f2c2d265a22e81dfa735ce18b7283ac2d3f8d0c5c7d04a880d72",
+    "send": 0,
+    "limit_send": 60,
+    "people":["13631196027","15813125569"]
+  },
+  "mysql": {
+    "host": "root:P@ssw0rd520!@tcp(192.168.68.4:13306)",
+    "db": "operation",
+    "max_con": 10
+  }
+}

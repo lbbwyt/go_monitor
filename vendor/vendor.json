@@ -1,0 +1,100 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "7nZciuhjItANNKfQIMokklsw0gw=",
+			"path": "github.com/astaxie/beego",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "qFmnMbrtRzi14+5scXmKq+/9xyU=",
+			"path": "github.com/astaxie/beego/config",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "WqXc/Kob5grLgDGu+Ru5xUSL9vo=",
+			"path": "github.com/astaxie/beego/context",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "6CUKSTe7nirUqQ7kctbv7kkF1eA=",
+			"path": "github.com/astaxie/beego/context/param",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "zNVoeKrYcNNex6/K/4sts8XIL5A=",
+			"path": "github.com/astaxie/beego/grace",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "jf/YI3zTT5/Dqvr0V2gLyWzlLbw=",
+			"path": "github.com/astaxie/beego/logs",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "1ji0miLtHwsq+4QI4ikGiFbCFDM=",
+			"path": "github.com/astaxie/beego/session",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "pjVYE2nh0XTgiXO4wY6upyhy6nQ=",
+			"path": "github.com/astaxie/beego/toolbox",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "wyz5HgdoDurteHhp63m+CwKx7zg=",
+			"path": "github.com/astaxie/beego/utils",
+			"revision": "1b6edafc96ad27b6515fafeccd7339dda3e997b1",
+			"revisionTime": "2018-11-30T13:54:26Z"
+		},
+		{
+			"checksumSHA1": "aNZPEOjiyAgS+Y0n19AF8vimMc4=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "877a9775f06853f611fb2d4e817d92479242d1cd",
+			"revisionTime": "2019-05-10T10:23:35Z"
+		},
+		{
+			"checksumSHA1": "RXSopFPGlhw7MD9uYxJ0oWN66JY=",
+			"path": "github.com/jinzhu/gorm",
+			"revision": "836fb2c19d84dac7b0272958dfb9af7cf0d0ade4",
+			"revisionTime": "2019-06-30T07:50:19Z"
+		},
+		{
+			"checksumSHA1": "w5/naAzcG0+g6aYx63/of1Wbgqw=",
+			"path": "github.com/jinzhu/gorm/dialects/mysql",
+			"revision": "836fb2c19d84dac7b0272958dfb9af7cf0d0ade4",
+			"revisionTime": "2019-06-30T07:50:19Z"
+		},
+		{
+			"checksumSHA1": "Hf2EdZUOQfrn+iW34gg2/0GHo94=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "f5c5f50e6090ae76a29240b61ae2a90dd810112e",
+			"revisionTime": "2019-06-03T04:28:36Z"
+		},
+		{
+			"checksumSHA1": "HUG9QNBH3amR9hGfSrIsYqTCLkw=",
+			"path": "golang.org/x/crypto/acme/autocert",
+			"revision": ""
+		},
+		{
+			"path": "google.golang.org/appengine/cloudsql",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "oNqPrS2edE8peI3ah2INe379k8E=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "51d6538a90f86fe93ac480b35f37b2be17fef232",
+			"revisionTime": "2018-11-15T11:05:04Z"
+		}
+	],
+	"rootPath": "chief_operation"
+}
