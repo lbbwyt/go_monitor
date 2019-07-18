@@ -119,6 +119,12 @@
 			"revisionTime": "2019-05-10T10:23:35Z"
 		},
 		{
+			"checksumSHA1": "fYBKex3hNG/Fu/qaJQEab2nZQN4=",
+			"path": "github.com/google/uuid",
+			"revision": "c2e93f3ae59f2904160ceaab466009f965df46d6",
+			"revisionTime": "2019-04-16T17:24:45Z"
+		},
+		{
 			"checksumSHA1": "FkV6X2KBq7CUPtUNH+rVza5Y5O4=",
 			"path": "github.com/hashicorp/hcl/hcl/scanner",
 			"revision": "cf7d376da96d9cecec7c7483cec2735efe54a410",
@@ -167,10 +173,46 @@
 			"revisionTime": "2019-06-03T04:28:36Z"
 		},
 		{
+			"checksumSHA1": "6tXSg7x76ZxK9g6nD6l0kLZfScQ=",
+			"path": "github.com/maruel/rs",
+			"revision": "2c81c4312fe4ee48bed510bdc37ddd499d2d9e9a",
+			"revisionTime": "2015-09-22T17:15:28Z"
+		},
+		{
+			"checksumSHA1": "BgI0rKYVB5h3oA7dmQbrR1gMOV0=",
+			"path": "github.com/maruel/rs/internal/gf256",
+			"revision": "2c81c4312fe4ee48bed510bdc37ddd499d2d9e9a",
+			"revisionTime": "2015-09-22T17:15:28Z"
+		},
+		{
+			"checksumSHA1": "7gFd33FrfqYpt8AVr0qdKVquqpA=",
+			"path": "github.com/skip2/go-qrcode",
+			"revision": "dc11ecdae0a9889dc81a343585516404e8dc6ead",
+			"revisionTime": "2019-01-10T00:05:54Z"
+		},
+		{
+			"checksumSHA1": "qL15ukdhUafj3A8C/uGiFFkRSX0=",
+			"path": "github.com/skip2/go-qrcode/bitset",
+			"revision": "dc11ecdae0a9889dc81a343585516404e8dc6ead",
+			"revisionTime": "2019-01-10T00:05:54Z"
+		},
+		{
+			"checksumSHA1": "XXgEc+wD56i7AKhxPob96njB5KU=",
+			"path": "github.com/skip2/go-qrcode/reedsolomon",
+			"revision": "dc11ecdae0a9889dc81a343585516404e8dc6ead",
+			"revisionTime": "2019-01-10T00:05:54Z"
+		},
+		{
 			"checksumSHA1": "nk6RrsdvNvT0jR4/U1WLHnoQNjM=",
 			"path": "github.com/spf13/viper",
 			"revision": "e02bc9eca55d5fc66221bc0aeeaaa77410603914",
 			"revisionTime": "2018-07-27T08:10:14Z"
+		},
+		{
+			"checksumSHA1": "kSqe2tF2n+lgoxejl7NcmjAKl6U=",
+			"path": "github.com/tuotoo/qrcode",
+			"revision": "ac9c44189bf215c3899299b625bc6266dc4255c9",
+			"revisionTime": "2019-02-22T10:22:59Z"
 		},
 		{
 			"checksumSHA1": "HUG9QNBH3amR9hGfSrIsYqTCLkw=",
@@ -180,6 +222,12 @@
 		{
 			"path": "golang.org/x/text/transform",
 			"revision": ""
+		},
+		{
+			"checksumSHA1": "OE61CWKF0KBo5hZEMrfhCkQEKg0=",
+			"path": "golang.org/x/text/unicode/norm",
+			"revision": "342b2e1fbaa52c93f31447ad2c6abc048c63e475",
+			"revisionTime": "2018-12-15T17:52:45Z"
 		},
 		{
 			"path": "google.golang.org/appengine/cloudsql",
