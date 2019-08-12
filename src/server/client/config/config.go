@@ -13,9 +13,10 @@ import (
 )
 
 type Config struct {
-	Org   string   `json:"org"`
-	Url   string   `json:"url"`
-	Ports []string `json:"ports"`
+	Org     string   `json:"org"`
+	Url     string   `json:"url"`
+	Logpath string   `json:"logpath"`
+	Ports   []string `json:"ports"`
 }
 
 var (

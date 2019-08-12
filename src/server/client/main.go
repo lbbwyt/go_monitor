@@ -18,6 +18,7 @@ func Init() {
 	//config.InitConfig("")
 	config.InitVipConfig()
 	oshandler.InitService()
+	oshandler.InitLogService()
 	//阻塞主线程
 	var chanInt = make(chan int)
 	<-chanInt
