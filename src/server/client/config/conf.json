@@ -1,7 +1,7 @@
 {
   "org": "数字高新",
   "url": "http://192.168.8.15:6800/api/pushMsg",
-  "logpath": "",
+  "logpath": "/home/application/monitorV2/log.txt",
   "ports":
       [
         "6801",

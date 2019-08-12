@@ -41,8 +41,8 @@ func InitLogService() {
 }
 
 func HandleLogMsg(msg string) {
-	fmt.Println(msg)
-	if strings.HasPrefix(msg, "monitor_log") {
+	//fmt.Println(msg)
+	if strings.Contains(msg, "monitor_log") {
 		//推送异常消息
 		logs.Info("************************" + msg + "*******************")
 		PushDingLogMsg(msg)
@@ -51,6 +51,7 @@ func HandleLogMsg(msg string) {
 
 func PushDingLogMsg(errMsg string) error {
 	url := config.Conf.Url
+	logs.Info("api接口为：", url)
 	org := config.Conf.Org
 	content := new(common.Param)
 	content.Org = org
@@ -61,7 +62,7 @@ func PushDingLogMsg(errMsg string) error {
 	req.Body(data)
 	res, err := req.Bytes()
 	if err != nil {
-		logs.Error("发送钉钉消息失败,msg:" + errMsg)
+		logs.Error("发送钉钉消息失败,msg:" + errMsg + "err:" + err.Error())
 		return err
 	}
 	logs.Info("钉钉消息发送成功 %s", string(res))

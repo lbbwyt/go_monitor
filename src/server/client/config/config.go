@@ -43,6 +43,9 @@ func InitVipConfig() {
 	}
 	var url = viper.GetString("url")
 	Conf.Url = url
+	var logpath = viper.GetString("logpath")
+	Conf.Logpath = logpath
+
 	Conf.Org = viper.GetString("org")
 	var prots []string
 	prots = viper.GetStringSlice("ports")
