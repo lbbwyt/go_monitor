@@ -1,11 +1,11 @@
 package handler
 
 import (
-    log "github.com/astaxie/beego/logs"
 	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego/httplib"
 	"github.com/astaxie/beego/logs"
+	log "github.com/astaxie/beego/logs"
 )
 
 type DingDing struct {
@@ -31,7 +31,7 @@ func NewDingDing(path string) *DingDing {
 
 func (this *DingDing) Send(param *Param) error {
 	data := this.SetParam(param)
-	log.Info("开始发送钉钉消息" +  string(data))
+	log.Info("开始发送钉钉消息" + string(data))
 	req := httplib.Post(this.Path)
 	req.Header("Content-Type", "application/json")
 	req.Body(data)
@@ -47,9 +47,8 @@ func (this *DingDing) Send(param *Param) error {
 func (this *DingDing) SetParam(param *Param) []byte {
 	content := new(DingContent)
 	content.Msgtype = "text"
-	content.Text.Content = fmt.Sprintf("异常单位：%v,异常应用：%v, 异常模块：%v,错误码为：%v, 错误提示为：%v, 具体信息为：%v",
-		param.Org, param.AppName, param.ModuleName,
-		param.Code, param.Error, param.Msg)
+	content.Text.Content = fmt.Sprintf("异常单位：%v, 错误提示为：%v, 具体信息为：%v",
+		param.Org, param.Error, param.Msg)
 
 	content.At.AtMobiles = GetPeople()
 	b, _ := json.Marshal(content)

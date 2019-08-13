@@ -4,27 +4,72 @@ import (
 	"encoding/json"
 	"fmt"
 	log "github.com/astaxie/beego/logs"
+	"github.com/fsnotify/fsnotify"
 	"go_monitor/src/util/form"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"src/github.com/spf13/viper"
+	"strconv"
 	"strings"
 )
 
-type Config struct {
-	*form.CommonConf
-}
-
 var (
-	Conf = new(Config)
+	Conf = new(form.CommonConf)
 )
 
 func InitConfig(test string) {
 	log.Info("开始加载配置")
 	ReadConf(Conf, test)
-
 	//从配置文件中加载数据库配置,配置文件变更后，重启服务。
 	log.Info("加载配置完成")
+}
+
+func InitVipConfig() {
+	viper.SetConfigName("conf")                            // name of config file (without extension)
+	viper.AddConfigPath(GetCurrentDirectory() + "/config") // path to look for the config file in
+	if err := viper.ReadInConfig(); err != nil {
+		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
+			log.Error("配置文件不存在")
+		} else {
+			log.Error("读取配置文件失败")
+		}
+		return
+	}
+
+	var confWxMap = viper.GetStringMapString("weixin")
+	var confDDMap = viper.GetStringMapString("dingding")
+	var confMysqlMap = viper.GetStringMapString("mysql")
+	var (
+		path   string = confDDMap["path"]
+		send   int
+		limit  int
+		people []string = make([]string, 0)
+	)
+	agentid, _ := strconv.Atoi(confWxMap["agentid"])
+	var weixin = form.NewWeixin(agentid, confWxMap["corpid"], confWxMap["corpsecret"])
+	var maxCon, _ = strconv.Atoi(confMysqlMap["max_con"])
+	var mysql = form.NewMysql(confMysqlMap["host"], confMysqlMap["db"], maxCon)
+
+	send, _ = strconv.Atoi(confDDMap["send"])
+	limit, _ = strconv.Atoi(confDDMap["limit_send"])
+	peopleStr := confDDMap["people"]
+	people = append(people, peopleStr)
+	log.Info("peopleStr" + peopleStr)
+	var dingding = form.NewDingDing(path, send, people, limit)
+	Conf = form.NewCommonConf(*mysql, *weixin, *dingding)
+
+	log.Info("加载配置完成")
+	go WatchConfig()
+
+}
+
+func WatchConfig() {
+	viper.WatchConfig()
+	viper.OnConfigChange(func(e fsnotify.Event) {
+		log.Info("Config file changed:")
+		InitVipConfig()
+	})
 }
 
 func ReadConf(v interface{}, test string) {

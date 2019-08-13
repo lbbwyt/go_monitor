@@ -18,7 +18,7 @@ func main() {
 func Init() {
 	log.Info(">>>>开始初始化")
 	//debug.InitDebug("localhost:6060")
-	config.InitConfig("")
+	config.InitVipConfig()
 	dao.InitMysql()
 	handler.InitService()
 	api.InitApi(":6800")
