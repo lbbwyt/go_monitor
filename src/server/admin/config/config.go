@@ -40,6 +40,7 @@ func InitVipConfig() {
 	var confWxMap = viper.GetStringMapString("weixin")
 	var confDDMap = viper.GetStringMapString("dingding")
 	var confMysqlMap = viper.GetStringMapString("mysql")
+	var confSmsMap = viper.GetStringMapString("sms")
 	var (
 		path   string = confDDMap["path"]
 		send   int
@@ -57,7 +58,12 @@ func InitVipConfig() {
 	people = append(people, peopleStr)
 	log.Info("peopleStr" + peopleStr)
 	var dingding = form.NewDingDing(path, send, people, limit)
-	Conf = form.NewCommonConf(*mysql, *weixin, *dingding)
+
+	smsEnabled, _ := strconv.Atoi(confSmsMap["enabled"])
+
+	Sms := form.NewSms(smsEnabled, confSmsMap["host"], confSmsMap["phone"])
+
+	Conf = form.NewCommonConf(*mysql, *weixin, *dingding, *Sms)
 
 	log.Info("加载配置完成")
 	go WatchConfig()

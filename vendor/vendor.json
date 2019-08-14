@@ -113,6 +113,12 @@
 			"revisionTime": "2018-11-30T13:54:26Z"
 		},
 		{
+			"checksumSHA1": "zcg65LeYERKZfsFGqjlH2n/s/Ck=",
+			"path": "github.com/axgle/mahonia",
+			"revision": "3358181d7394e26beccfae0ffde05193ef3be33a",
+			"revisionTime": "2018-02-08T00:28:26Z"
+		},
+		{
 			"checksumSHA1": "aNZPEOjiyAgS+Y0n19AF8vimMc4=",
 			"path": "github.com/go-sql-driver/mysql",
 			"revision": "877a9775f06853f611fb2d4e817d92479242d1cd",
@@ -250,6 +256,12 @@
 			"revision": ""
 		},
 		{
+			"checksumSHA1": "lzu5j2Gl33YUhIGbZOV/blOIug4=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "9eafafc0a87e0fd0aeeba439a4573537970c44c7",
+			"revisionTime": "2019-08-12T07:25:24Z"
+		},
+		{
 			"path": "golang.org/x/text/transform",
 			"revision": ""
 		},
@@ -269,6 +281,12 @@
 			"path": "gopkg.in/fsnotify/fsnotify.v1",
 			"revision": "a1dbeea552b7c8df4b542c66073e393de198a800",
 			"revisionTime": "2018-05-14T19:44:41Z"
+		},
+		{
+			"checksumSHA1": "dh4XH351aGCiRrtUymi+hCV61LQ=",
+			"path": "gopkg.in/iconv.v1",
+			"revision": "16a760eb7e186ae0e3aedda00d4a1daa4d0701d8",
+			"revisionTime": "2016-05-30T02:44:06Z"
 		},
 		{
 			"checksumSHA1": "QF4S/m8RxYi4W+A98I1ZLb881n8=",

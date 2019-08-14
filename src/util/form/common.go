@@ -26,6 +26,20 @@ type Weixin struct {
 	Corpsecret string `json:"corpsecret"`
 }
 
+type Sms struct {
+	Enabled int    `json:"enabled"`
+	Host    string `json:"host"`
+	Phone   string `json:"phone"`
+}
+
+func NewSms(enabled int, host string, phone string) *Sms {
+	return &Sms{
+		Enabled: enabled,
+		Host:    host,
+		Phone:   phone,
+	}
+}
+
 func NewWeixin(agentid int, corpid string, corpsecret string) *Weixin {
 	return &Weixin{
 		agentid,
@@ -51,11 +65,12 @@ func NewDingDing(path string, send int, people []string, limit int) *Dingding {
 	}
 }
 
-func NewCommonConf(mysql Mysql, weixin Weixin, dingding Dingding) *CommonConf {
+func NewCommonConf(mysql Mysql, weixin Weixin, dingding Dingding, sms Sms) *CommonConf {
 	return &CommonConf{
 		Mysql:    mysql,
 		Weixin:   weixin,
 		Dingding: dingding,
+		Sms:      sms,
 	}
 }
 
@@ -66,6 +81,7 @@ type CommonConf struct {
 	Redis         Redis    `json:"redis"`
 	Dingding      Dingding `json:"dingding"`
 	Weixin        Weixin   `json:"weixin"`
+	Sms           Sms      `json:"sms"`
 }
 
 type PortConf struct {

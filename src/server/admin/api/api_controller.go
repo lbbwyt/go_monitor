@@ -3,6 +3,7 @@ package api
 import (
 	"fmt"
 	log "github.com/astaxie/beego/logs"
+	"go_monitor/src/server/admin/config"
 	"go_monitor/src/server/admin/dao"
 	"go_monitor/src/server/admin/entity"
 	"go_monitor/src/server/admin/handler"
@@ -26,6 +27,11 @@ func (this *ApiController) PushMsg(param *handler.Param) error {
 	var content = fmt.Sprintf("异常单位：%v, 错误提示为：%v, 具体信息为：%v",
 		param.Org, param.Error, param.Msg)
 	go handler.PushWxMsg(content)
+
+	//推送短信消息
+	if config.Conf.Sms.Enabled == 1 {
+		go handler.PushSmsMsg(content, config.Conf.Sms.Phone)
+	}
 
 	var alarmMsg = new(entity.AlarmMsg)
 	alarmMsg.AppName = param.AppName

@@ -10,6 +10,11 @@
     "corpid":"wx9796ae389ec6e4ab",
     "corpsecret":"zKFec60Qm--sK4FDEq4BU3ZjUytozoW7LtgbxvZ9PKo"
   },
+  "sms": {
+    "host":"http://192.168.68.1:9005/api",
+    "phone": "13631196027,15813125569",
+    "enabled":1
+  },
   "mysql": {
     "host": "root:P@ssw0rd520!@tcp(192.168.68.4:13306)",
     "db": "operation",
