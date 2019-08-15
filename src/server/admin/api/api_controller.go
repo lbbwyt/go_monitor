@@ -31,6 +31,7 @@ func (this *ApiController) PushMsg(param *handler.Param) error {
 
 	found, _ := ExpiredMap.Get(content)
 	if found {
+		log.Info("already alarm")
 		return nil
 	}
 	ExpiredMap.Set(content, 1, int64(60*60))
