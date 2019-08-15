@@ -15,7 +15,7 @@ import (
 type ApiController struct{}
 
 var (
-	ExpiredMap = emap.NewExpiredMap()
+	cacheMap = emap.NewExpiredMap()
 )
 
 func NewApiController() *ApiController {
@@ -28,13 +28,14 @@ func (this *ApiController) PushMsg(param *handler.Param) error {
 	//消息推送到微信
 	var content = fmt.Sprintf("异常单位：%v, 错误提示为：%v, 具体信息为：%v",
 		param.Org, param.Error, param.Msg)
-
-	found, _ := ExpiredMap.Get(content)
+	log.Info("************" + content)
+	found, value := cacheMap.Get(content)
 	if found {
-		log.Info("already alarm")
+		log.Info(value.(string) + " already alarm, ttl：")
+		log.Info(cacheMap.TTL(content))
 		return nil
 	}
-	ExpiredMap.Set(content, 1, int64(60*60))
+	cacheMap.Set(content, content, int64(60*60))
 	log.Info("start alarm")
 	//消息推送到钉钉
 	go handler.Add(param)
