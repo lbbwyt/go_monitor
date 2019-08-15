@@ -5,10 +5,10 @@ import (
 	"fmt"
 	log "github.com/astaxie/beego/logs"
 	"github.com/fsnotify/fsnotify"
+	"github.com/spf13/viper"
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"src/github.com/spf13/viper"
 	"strings"
 )
 
