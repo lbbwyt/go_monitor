@@ -3,8 +3,8 @@ package common
 import (
 	"github.com/astaxie/beego/logs"
 	"github.com/skip2/go-qrcode"
+	t_qrcode "github.com/tuotoo/qrcode"
 	"os"
-	t_qrcode "src/github.com/tuotoo/qrcode"
 )
 
 func CreateQrcode(content string, filename string) {
