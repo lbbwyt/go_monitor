@@ -127,7 +127,7 @@ func Md5V(str string) string {
 //go get gopkg.in/iconv.v1
 //
 //
-//类似于与java的java.net.URLEncoder.encode(msg,"gba312")
+//类似于与java的java.net.URLEncoder.encode(msg,"gb2312")
 func ToGb2132(str string) string {
 	cd, err := iconv.Open("gb2312", "utf-8") // convert utf-8 to gb2312
 	if err != nil {

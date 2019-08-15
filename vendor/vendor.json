@@ -119,6 +119,12 @@
 			"revisionTime": "2018-02-08T00:28:26Z"
 		},
 		{
+			"checksumSHA1": "I0JxZTlCQ9zFrR+oPq5pS3JTzmw=",
+			"path": "github.com/djimenez/iconv-go",
+			"revision": "8960e66bd3dacbc8773962b40eb82fc18c63c127",
+			"revisionTime": "2016-03-05T22:51:43Z"
+		},
+		{
 			"checksumSHA1": "aNZPEOjiyAgS+Y0n19AF8vimMc4=",
 			"path": "github.com/go-sql-driver/mysql",
 			"revision": "877a9775f06853f611fb2d4e817d92479242d1cd",

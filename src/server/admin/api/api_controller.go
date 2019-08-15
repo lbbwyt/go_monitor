@@ -7,11 +7,16 @@ import (
 	"go_monitor/src/server/admin/dao"
 	"go_monitor/src/server/admin/entity"
 	"go_monitor/src/server/admin/handler"
+	emap "go_monitor/src/util/ExpiredMap"
 	"go_monitor/src/util/common"
 	"time"
 )
 
 type ApiController struct{}
+
+var (
+	ExpiredMap = emap.NewExpiredMap()
+)
 
 func NewApiController() *ApiController {
 	d := new(ApiController)
@@ -20,12 +25,19 @@ func NewApiController() *ApiController {
 
 func (this *ApiController) PushMsg(param *handler.Param) error {
 	log.Info("推送消息：" + common.Obj2JsonStr(param))
-	//消息推送到钉钉
-	go handler.Add(param)
-
 	//消息推送到微信
 	var content = fmt.Sprintf("异常单位：%v, 错误提示为：%v, 具体信息为：%v",
 		param.Org, param.Error, param.Msg)
+
+	found, _ := ExpiredMap.Get(content)
+	if found {
+		return nil
+	}
+	ExpiredMap.Set(content, 1, int64(60*60))
+
+	//消息推送到钉钉
+	go handler.Add(param)
+
 	go handler.PushWxMsg(content)
 
 	//推送短信消息
