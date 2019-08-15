@@ -28,7 +28,7 @@ func (this *ApiController) PushMsg(param *handler.Param) error {
 	log.Info("推送消息：" + common.Obj2JsonStr(param))
 
 	msg := param.Msg
-	strMsg := msg[strings.Index(msg, "monitor_log") : len(msg)-1]
+	strMsg := msg[strings.Index(msg, "monitor_log"):len(msg)]
 	//消息推送到微信
 	var content = fmt.Sprintf("异常单位：%v, 错误提示为：%v, 具体信息为：%v",
 		param.Org, param.Error, strMsg)
@@ -39,7 +39,7 @@ func (this *ApiController) PushMsg(param *handler.Param) error {
 		log.Info(cacheMap.TTL(content))
 		return nil
 	}
-	cacheMap.Set(content, content, int64(60*60))
+	cacheMap.Set(content, content, int64(2*60*60))
 	log.Info("start alarm")
 	//消息推送到钉钉
 	go handler.Add(param)
