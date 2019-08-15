@@ -9,6 +9,7 @@ import (
 	"go_monitor/src/server/admin/handler"
 	emap "go_monitor/src/util/ExpiredMap"
 	"go_monitor/src/util/common"
+	"strings"
 	"time"
 )
 
@@ -25,9 +26,12 @@ func NewApiController() *ApiController {
 
 func (this *ApiController) PushMsg(param *handler.Param) error {
 	log.Info("推送消息：" + common.Obj2JsonStr(param))
+
+	msg := param.Msg
+	strMsg := msg[strings.Index(msg, "monitor_log") : len(msg)-1]
 	//消息推送到微信
 	var content = fmt.Sprintf("异常单位：%v, 错误提示为：%v, 具体信息为：%v",
-		param.Org, param.Error, param.Msg)
+		param.Org, param.Error, strMsg)
 	log.Info("************" + content)
 	found, value := cacheMap.Get(content)
 	if found {
