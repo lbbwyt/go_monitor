@@ -38,6 +38,7 @@ func (this *ApiController) PushMsg(param *handler.Param) error {
 		return nil
 	}
 	cacheMap.Set(content, content, int64(6*60*60))
+
 	//消息推送到钉钉
 	go handler.Add(param)
 
