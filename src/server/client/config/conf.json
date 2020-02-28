@@ -1,10 +1,15 @@
 {
   "org": "数字高新",
   "url": "http://192.168.8.15:6800/api/pushMsg",
-  "logpath": "/home/application/monitorV2/log.txt",
+  "logpath": "/Users/mac/libaobao/log.txt",
+  "mysql": {
+    "host": "root:P@ssw0rd520!@tcp(192.168.68.4:13306)",
+    "db": "monitor",
+    "max_con": 10
+  },
   "ports":
       [
-        "6801",
+        "9002",
         "8002"
       ]
 }

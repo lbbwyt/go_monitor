@@ -1,0 +1,15 @@
+version: '2'
+
+networks:
+  basic:
+
+services:
+  world:
+    container_name: world
+    image: go-web
+    ports:
+      - "8099:8081"
+    volumes:
+      - ./app/go/world:/go/src/app:rw
+    networks:
+      - basic

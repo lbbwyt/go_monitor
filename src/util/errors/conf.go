@@ -1,9 +1,7 @@
 package errors
 
-import (
-)
+import ()
 
-//好友错误码 30000-31000
 const (
 	ErrCodeConf = 35001
 )
@@ -13,5 +11,5 @@ var (
 )
 
 func newConf(code int32, detail string) error {
-	return New("","", code)
+	return New("", "", code)
 }

@@ -6,17 +6,20 @@ import (
 	log "github.com/astaxie/beego/logs"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
+	"go_monitor/src/util/form"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 )
 
 type Config struct {
-	Org     string   `json:"org"`
-	Url     string   `json:"url"`
-	Logpath string   `json:"logpath"`
-	Ports   []string `json:"ports"`
+	Org     string      `json:"org"`
+	Url     string      `json:"url"`
+	Logpath string      `json:"logpath"`
+	Ports   []string    `json:"ports"`
+	Mysql   *form.Mysql `json:"mysql"`
 }
 
 var (
@@ -50,6 +53,14 @@ func InitVipConfig() {
 	var prots []string
 	prots = viper.GetStringSlice("ports")
 	Conf.Ports = prots
+
+	//db :=  viper.Get("mysql")
+
+	var confMysqlMap = viper.GetStringMapString("mysql")
+	var maxCon, _ = strconv.Atoi(confMysqlMap["max_con"])
+	var mysql = form.NewMysql(confMysqlMap["host"], confMysqlMap["db"], maxCon)
+	Conf.Mysql = mysql
+
 	log.Info("加载配置完成")
 	go WatchConfig()
 

@@ -40,7 +40,13 @@ func execPipleCmd(port string) {
 
 	outstr, err := ExecPipeLine(cmds...)
 	if err != nil {
-		PushDingMsg(err.Error(), port)
+		msg := "monitorlog_sys_999_" + "端口" + port + "绑定的服务异常"
+
+		res := PraseMsg(msg)
+		//持久化消息
+		if res != nil {
+			SaveMsg(res)
+		}
 	}
 
 	logs.Info("linux 命令执行结果为" + outstr)
@@ -51,7 +57,7 @@ func PushDingMsg(errMsg string, port string) error {
 	org := config.Conf.Org
 	content := new(common.Param)
 	content.Org = org
-	content.Msg = "端口号为（" + port + "）的服务进程已死亡,请及时处理，错误内容为：" + errMsg
+	content.Msg = "端口号为（" + port + "）的服务进程已死亡,请及时处理" + errMsg
 	data, _ := json.Marshal(content)
 	req := httplib.Post(url)
 	req.Header("Content-Type", "application/json")

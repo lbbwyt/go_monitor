@@ -26,8 +26,8 @@ func InitConfig(test string) {
 }
 
 func InitVipConfig() {
-	viper.SetConfigName("conf")                            // name of config file (without extension)
-	viper.AddConfigPath(GetCurrentDirectory() + "/config") // path to look for the config file in
+	viper.SetConfigName("conf")
+	viper.AddConfigPath(GetCurrentDirectory() + "/config")
 	if err := viper.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 			log.Error("配置文件不存在")
